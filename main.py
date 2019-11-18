@@ -1,3 +1,4 @@
+#! /bin/bash
 import os
 import requests
 import numpy as np
