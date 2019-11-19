@@ -142,7 +142,7 @@ def download_video_from_youtube(id_video, path_page):
     print("Downloading...")
     for number in numbers:
         url = "youtube-dl -f " + str(number) + " -o " + path_page + '/' \
-              + "input/input.%(ext)s https://www.youtube.com/watch?v=" + str(id_video)
+              + "input/input.%\(ext\)s https://www.youtube.com/watch?v=" + str(id_video)
         os.system(url)
 
         check = get_file_upload(path_page)
