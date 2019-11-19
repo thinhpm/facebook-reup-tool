@@ -18,4 +18,3 @@ requests==2.21.0
 requests-oauthlib==1.2.0
 requests-toolbelt==0.9.1
 youtube-dl==2019.5.20
-numpy==1.16.1
