@@ -1,7 +1,6 @@
 #!/bin/bash
 import os
 import requests
-import numpy as np
 import time
 import subprocess
 import json
@@ -11,7 +10,6 @@ from moviepy.editor import VideoFileClip
 import shutil
 from requests import exceptions
 
-np.seterr(over='ignore')
 main_api = "api.mgghot.com"
 path = os.getcwd()
 
