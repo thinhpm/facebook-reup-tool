@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d2088c63-ce4f-4a7a-aff5-950b87f02dd2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playlist-playlist.mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/upload-video-to-facebook" beforeDir="false" afterPath="$PROJECT_DIR$/upload-video-to-facebook" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/upload-video-to-facebook/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/ajv/.tonic_example.js" beforeDir="false" />
@@ -62,11 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="658" column="38" selection-start-line="658" selection-start-column="38" selection-end-line="658" selection-end-column="38" />
-              <folding>
-                <element signature="e#13#22#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="359">
+              <caret line="323" column="16" lean-forward="true" selection-start-line="323" selection-start-column="16" selection-end-line="323" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -74,8 +72,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="272">
+              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -121,7 +119,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -138,6 +135,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -286,18 +284,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        <state relative-caret-position="272">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="658" column="38" selection-start-line="658" selection-start-column="38" selection-end-line="658" selection-end-column="38" />
-          <folding>
-            <element signature="e#13#22#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="359">
+          <caret line="323" column="16" lean-forward="true" selection-start-line="323" selection-start-column="16" selection-end-line="323" selection-end-column="16" />
         </state>
       </provider>
     </entry>

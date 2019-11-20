@@ -321,7 +321,10 @@ def hanlde(access_token, cookie, name_title, description, genres, thumbnail, pat
     length_video = getLengthVideo(file_name)
 
     print("Uploading...")
-
+    print(title)
+    print(des)
+    print(link_video)
+    print(thumbnail)
     if length_video < 1200:
         check = uploadVideoToFacebook(link_video, access_token, cookie, title, des, thumbnail)
     else:
