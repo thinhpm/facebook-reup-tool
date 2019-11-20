@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d2088c63-ce4f-4a7a-aff5-950b87f02dd2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playlist-playlist.mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/upload-video-to-facebook" beforeDir="false" afterPath="$PROJECT_DIR$/upload-video-to-facebook" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/upload-video-to-facebook/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/ajv/.tonic_example.js" beforeDir="false" />
@@ -63,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="323" column="16" lean-forward="true" selection-start-line="323" selection-start-column="16" selection-end-line="323" selection-end-column="16" />
+            <state relative-caret-position="136">
+              <caret line="329" column="9" lean-forward="true" selection-start-line="329" selection-start-column="9" selection-end-line="329" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -236,7 +235,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.55482817" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.4762684" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -291,8 +290,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="323" column="16" lean-forward="true" selection-start-line="323" selection-start-column="16" selection-end-line="323" selection-end-column="16" />
+        <state relative-caret-position="136">
+          <caret line="329" column="9" lean-forward="true" selection-start-line="329" selection-start-column="9" selection-end-line="329" selection-end-column="9" />
         </state>
       </provider>
     </entry>

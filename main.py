@@ -329,9 +329,15 @@ def hanlde(access_token, cookie, name_title, description, genres, thumbnail, pat
         check = uploadVideoToFacebook(link_video, access_token, cookie, title, des, thumbnail)
     else:
         print("Upload by nodejs")
-        string_upload = "node " + path + '/' + "upload-video-to-facebook\main.js --id=\"" + id_page + "\" --token=\"" + access_token \
+
+        if get_platform() == 'Windows':
+            string_upload = "node upload-video-to-facebook/main.js --id=\"" + id_page + "\" --token=\"" + access_token \
                         + "\" --title=\"" + title + "\" --des=\"" \
                         + des + " \" --video=\"" + link_video + "\" --tags=\"" + genres + "\" --thumb=\"" + thumbnail + "\""
+        else:
+            string_upload = "sudo node upload-video-to-facebook/main.js --id=\"" + id_page + "\" --token=\"" + access_token \
+                            + "\" --title=\"" + title + "\" --des=\"" \
+                            + des + " \" --video=\"" + link_video + "\" --tags=\"" + genres + "\" --thumb=\"" + thumbnail + "\""
 
         os.system(string_upload)
         check = True
