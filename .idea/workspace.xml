@@ -4,81 +4,12 @@
     <list default="true" id="d2088c63-ce4f-4a7a-aff5-950b87f02dd2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook" beforeDir="false" afterPath="$PROJECT_DIR$/upload-video-to-facebook" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/upload-video-to-facebook/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/ajv/.tonic_example.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/ajv/scripts/.eslintrc.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/any-promise/.jshintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/any-promise/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/aws4/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/delayed-stream/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/end-of-stream/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/extend/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/extend/.eslintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/extend/.jscs.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/extend/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/extsprintf/.gitmodules" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/extsprintf/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/fast-json-stable-stringify/.eslintrc.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/fast-json-stable-stringify/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/fast-json-stable-stringify/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/getpass/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/getpass/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/http-signature/.dir-locals.el" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/http-signature/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/isstream/.jshintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/isstream/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/isstream/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/jsbn/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/json-schema-traverse/.eslintrc.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/json-schema-traverse/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/json-schema-traverse/spec/.eslintrc.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/json-stringify-safe/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/minimist/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/performance-now/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/performance-now/.tm_properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/performance-now/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/psl/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/psl/.eslintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/psl/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/qs/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/qs/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/qs/.eslintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/qs/test/.eslintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/request-promise/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/sshpk/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/sshpk/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/tweetnacl/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/uuid/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload-video-to-facebook/node_modules/verror/.npmignore" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="232" column="65" selection-start-line="232" selection-start-column="65" selection-end-line="232" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -94,19 +25,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/text.txt" />
-        <option value="F:/Argentina u11-20191012T101339Z-001/Argentina u11/main.py" />
-        <option value="$PROJECT_DIR$/key_api.txt" />
-        <option value="$PROJECT_DIR$/key.txt" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/main.py" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
@@ -114,30 +32,6 @@
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="facebook-reup-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="facebook-reup-tool" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="facebook-reup-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="facebook-reup-tool" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="F:/Argentina u11-20191012T101339Z-001/Argentina u11/main.py" />
   </component>
@@ -208,6 +102,16 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -221,80 +125,7 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.497545" visible="true" weight="0.25" />
-      <window_info id="Structure" order="1" sideWeight="0.502455" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.400982" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.4762684" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/text.txt" />
-    <entry file="file://$PROJECT_DIR$/abc/adas" />
-    <entry file="file://$PROJECT_DIR$/2/1/thumbnail.jpg" />
-    <entry file="file://F:/Argentina u11-20191012T101339Z-001/Argentina u11/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6426">
-          <caret line="386" selection-start-line="386" selection-end-line="386" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/key_api.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="39" selection-start-column="39" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/key.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="232" column="65" selection-start-line="232" selection-start-column="65" selection-end-line="232" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
