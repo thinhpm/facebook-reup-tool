@@ -46,7 +46,7 @@ def get_list_video_by_api(channel_id, data_channel):
         list_item = json.loads(req.content)
 
         items = list_item['items']
-
+        print(items)
         try:
             page_token = list_item['nextPageToken']
         except KeyError:
