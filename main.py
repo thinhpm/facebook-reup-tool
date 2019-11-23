@@ -230,7 +230,6 @@ def process_video(file_name, length_cut):
 
 
 def uploadVideoToFacebook(file_name, access_token, cookie, title, des, thumb):
-    file_name = "/home/pi/facebook-reup-tool/4/1/input/input.mp4"
     file_size = os.path.getsize(file_name)
 
     headers = {
@@ -322,10 +321,7 @@ def hanlde(access_token, cookie, name_title, description, genres, thumbnail, pat
     length_video = getLengthVideo(file_name)
 
     print("Uploading...")
-    print(title)
-    print(des)
-    print(link_video)
-    print(thumbnail)
+
     if length_video < 1200:
         check = uploadVideoToFacebook(link_video, access_token, cookie, title, des, thumbnail)
     else:
