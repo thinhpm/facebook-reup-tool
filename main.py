@@ -574,6 +574,10 @@ def auto(arr):
 
                 info = result['data']
 
+                if len(info) == 0:
+                    count_reset = count_reset + 1
+                    continue
+
                 get_list_video(info, path_page, path_thumb, account_id)
 
             stt = stt + 1
@@ -606,6 +610,10 @@ def default():
                 result = get_info_by_api(page_number, account_id)
 
             info = result['data']
+
+            if len(info) == 0:
+                print("Account have been checkpoint!")
+                continue
 
             get_list_video(info, path_page, path_thumb, account_id)
 
