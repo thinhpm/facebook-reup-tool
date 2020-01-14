@@ -586,7 +586,7 @@ def auto(arr):
                 count_reset = 0
                 stt = 0
 
-            time.sleep(7200)
+            time.sleep(100)
         except exceptions.ConnectionError:
             print("Error Connect!")
             time.sleep(100)
@@ -617,7 +617,7 @@ def default():
 
             get_list_video(info, path_page, path_thumb, account_id)
 
-            time.sleep(7200)
+            time.sleep(100)
         except exceptions.ConnectionError:
             print("Error connect!")
             time.sleep(100)
@@ -670,7 +670,7 @@ def generate_cookie(string_cookie):
 
 
 if __name__ == '__main__':
-    arr_page = [[], [1, 2], [], [1, 2, 3], [1, 2]]
+    arr_page = [[1, 2]]
 
     option = str(input("One page (0) OR All page (1) ? "))
 
