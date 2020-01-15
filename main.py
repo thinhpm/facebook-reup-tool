@@ -136,6 +136,8 @@ def get_number_video(url):
 def download_video_from_youtube(id_video, path_page):
     numbers = get_number_video("https://www.youtube.com/watch?v=" + str(id_video))
 
+    platform = get_platform()
+
     if numbers is False:
         return False
 
@@ -143,6 +145,11 @@ def download_video_from_youtube(id_video, path_page):
     for number in numbers:
         url = "youtube-dl -f " + str(number) + " -o " + path_page + '/' \
               + "input/input.%\(ext\)s https://www.youtube.com/watch?v=" + str(id_video)
+
+        if platform == 'Windows':
+            url = "youtube-dl -f " + str(number) + " -o " + path_page + '/' \
+                  + "input/input.%(ext)s https://www.youtube.com/watch?v=" + str(id_video)
+
         os.system(url)
 
         check = get_file_upload(path_page)
