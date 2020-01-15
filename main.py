@@ -293,7 +293,8 @@ def getLengthVideo(input_video):
     platform = get_platform()
 
     if platform == 'Windows':
-        result = subprocess.Popen('ffprobe -i ' + input_video + ' -show_entries format=duration -v quiet -of csv="p=0"', stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+        string = 'ffprobe -i ' + input_video + ' -show_entries format=duration -v quiet -of csv="p=0"'
+        result = subprocess.Popen(string, stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
         output = result.communicate()[0].strip()
 
         index = str(output).find('.')
@@ -301,11 +302,14 @@ def getLengthVideo(input_video):
 
         return int(output)
 
-    result = subprocess.getoutput('ffprobe -i ' + input_video + ' -show_entries format=duration -v quiet -of csv="p=0"')
-    output = result.split()[0].strip()
+    string = 'ffprobe -i ' + input_video + ' -show_entries format=duration -v quiet -of csv="p=0"'
 
-    index = str(output).find('.')
-    output = output[:index - 2]
+    result = subprocess.getoutput(string)
+    output = result.split()[0].strip()
+    output = float(output)
+    output = int(output)
+    # index = str(output).find('.')
+    # output = output[:index - 2]
 
     return int(output)
 
@@ -326,7 +330,7 @@ def hanlde(access_token, cookie, name_title, description, genres, thumbnail, pat
     id_page = "me"
     link_video = file_name
     length_video = getLengthVideo(file_name)
-
+    print(length_video)
     print("Uploading...")
 
     if length_video < 1200:
