@@ -336,18 +336,21 @@ def hanlde(access_token, cookie, name_title, description, genres, thumbnail, pat
     if length_video < 1200:
         check = uploadVideoToFacebook(link_video, access_token, cookie, title, des, thumbnail)
     else:
-        print("Upload by nodejs")
-
-        if get_platform() == 'Windows':
-            string_upload = "node upload-video-to-facebook/main.js --id=\"" + id_page + "\" --token=\"" + access_token \
-                        + "\" --title=\"" + title + "\" --des=\"" \
-                        + des + " \" --video=\"" + link_video + "\" --tags=\"" + genres + "\" --thumb=\"" + thumbnail + "\""
+        if length_video > 3000:
+            pass
         else:
-            string_upload = "sudo node upload-video-to-facebook/main.js --id=\"" + id_page + "\" --token=\"" + access_token \
+            print("Upload by nodejs")
+
+            if get_platform() == 'Windows':
+                string_upload = "node upload-video-to-facebook/main.js --id=\"" + id_page + "\" --token=\"" + access_token \
                             + "\" --title=\"" + title + "\" --des=\"" \
                             + des + " \" --video=\"" + link_video + "\" --tags=\"" + genres + "\" --thumb=\"" + thumbnail + "\""
+            else:
+                string_upload = "sudo node upload-video-to-facebook/main.js --id=\"" + id_page + "\" --token=\"" + access_token \
+                                + "\" --title=\"" + title + "\" --des=\"" \
+                                + des + " \" --video=\"" + link_video + "\" --tags=\"" + genres + "\" --thumb=\"" + thumbnail + "\""
 
-        os.system(string_upload)
+            os.system(string_upload)
         check = True
 
     empty_folder(path_page + "/input")
@@ -395,7 +398,8 @@ def get_list_video(info_api, path_page, path_thumb, account_id):
             print("Channel id:" + str(channel_id))
             # time.sleep(7200)
         else:
-            update_check_point(account_id)
+            # update_check_point(account_id)
+            pass
         break
 
 
@@ -597,10 +601,10 @@ def auto(arr):
                 count_reset = 0
                 stt = 0
 
-            time.sleep(100)
+            time.sleep(600)
         except exceptions.ConnectionError:
             print("Error Connect!")
-            time.sleep(100)
+            time.sleep(300)
 
 
 def default():
@@ -628,7 +632,7 @@ def default():
 
             get_list_video(info, path_page, path_thumb, account_id)
 
-            time.sleep(100)
+            time.sleep(600)
         except exceptions.ConnectionError:
             print("Error connect!")
             time.sleep(100)
@@ -681,7 +685,7 @@ def generate_cookie(string_cookie):
 
 
 if __name__ == '__main__':
-    arr_page = [[1, 3], [1, 2, 3], [1, 2, 4]]
+    arr_page = [[1, 2, 3], [1, 2, 3], [1, 2, 4], [1, 2, 3]]
 
     option = str(input("One page (0) OR All page (1) ? "))
 
