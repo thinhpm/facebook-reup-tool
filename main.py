@@ -48,7 +48,6 @@ def get_list_video_by_api(channel_id, data_channel):
         list_item = json.loads(req.content)
 
         if 'items' not in list_item:
-            print("lost key")
             stt = stt + 1
 
             if stt >= len_key_api:
@@ -175,29 +174,33 @@ def download_video_from_youtube(id_video, path_page):
 
 
 def get_tags(id_video):
-    url = "https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&key=" + key_api + "&id=" + str(id_video)
+    for key_api in key_apis:
+        url = "https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&key=" + key_api + "&id=" + str(id_video)
 
-    req = requests.get(url)
-    items = json.loads(req.content)
-    tags = ''
-    title = ''
-    result = []
+        req = requests.get(url)
+        items = json.loads(req.content)
+        tags = ''
+        title = ''
+        result = []
 
-    try:
-        title = items['items'][0]['snippet']['title']
-    except KeyError as e:
-        print('I got a KeyError - reason "%s"' % str(e))
+        try:
+            if 'items' not in items:
+                continue
 
-    try:
-        tags = items['items'][0]['snippet']['tags']
-    except KeyError as e:
-        print('I got a KeyError - reason "%s"' % str(e))
+            title = items['items'][0]['snippet']['title']
+        except KeyError as e:
+            print('I got a KeyError - reason "%s"' % str(e))
 
-    list_tag = ','.join(tags)
-    result.append(title)
-    result.append(list_tag)
+        try:
+            tags = items['items'][0]['snippet']['tags']
+        except KeyError as e:
+            print('I got a KeyError - reason "%s"' % str(e))
 
-    return result
+        list_tag = ','.join(tags)
+        result.append(title)
+        result.append(list_tag)
+
+        return result
 
 
 def get_file_upload(path_page):
@@ -701,7 +704,7 @@ def generate_cookie(string_cookie):
 
 
 if __name__ == '__main__':
-    arr_page = [[1, 2, 3], [1, 2, 3], [1, 2, 4], [1, 2, 3]]
+    arr_page = [[1, 2, 3], [1, 2, 3], [], [1, 2, 3], [], [1, 2, 3]]
 
     option = str(input("One page (0) OR All page (1) ? "))
 
