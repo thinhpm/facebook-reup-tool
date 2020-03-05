@@ -1,4 +1,4 @@
-#!/bin/bash
+
 import os
 import requests
 import time
@@ -45,13 +45,14 @@ def get_list_video_by_api(channel_id, data_channel):
     for item in list_item:
         id_video = item.xpath("div/div/div/a/@href")
 
-        if len(id_video) > 0 and id_video[0] not in data_channel:
-            id_video =id_video[0]
+        if len(id_video) > 0:
+            id_video = id_video[0]
 
             arr = id_video.split("&")
             id_video = arr[0].replace("/watch?v=", "")
 
-            results.append(id_video)
+            if id_video not in data_channel:
+                results.append(id_video)
 
     return results
 
