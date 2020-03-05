@@ -1,4 +1,3 @@
-#!/bin/bash
 import os
 import requests
 import time
@@ -28,13 +27,16 @@ def get_data_file(path_file):
 
 key = get_data_file("config/key.txt")
 
-key_api = get_data_file("config/key_api.txt")
+key_apis = get_data_file("config/key_api.txt").split(",")
 
 
 def get_list_video_by_api(channel_id, data_channel):
     results = []
     max_result = 30
     page_token = ''
+    stt = 0
+    key_api = key_apis[0]
+    len_key_api = len(key_apis)
 
     while len(results) < 31:
         url = "https://www.googleapis.com/youtube/v3/search?part=id&key=" \
@@ -44,6 +46,16 @@ def get_list_video_by_api(channel_id, data_channel):
         req = requests.get(url)
 
         list_item = json.loads(req.content)
+
+        if 'items' not in list_item:
+            print("lost key")
+            stt = stt + 1
+
+            if stt >= len_key_api:
+                return []
+
+            key_api = key_apis[stt]
+            continue
 
         items = list_item['items']
 
@@ -236,7 +248,7 @@ def process_video(file_name, length_cut):
     return 'output/output.mp4'
 
 
-def uploadVideoToFacebook(file_name, access_token, cookie, title, des, thumb):
+def uploadVideoToFacebook(file_name, access_token, cookie, title, des, thumb, account_id):
     file_size = os.path.getsize(file_name)
 
     headers = {
@@ -255,6 +267,10 @@ def uploadVideoToFacebook(file_name, access_token, cookie, title, des, thumb):
         req1 = requests.post(url1, data=data1, headers=headers, cookies=cookie)
 
         content1 = json.loads(req1.content)
+
+        if 'upload_session_id' not in content1:
+            update_check_point(account_id)
+            return False
 
         upload_session_id = content1['upload_session_id']
 
@@ -314,7 +330,7 @@ def getLengthVideo(input_video):
     return int(output)
 
 
-def hanlde(access_token, cookie, name_title, description, genres, thumbnail, path_page, path_thumb):
+def hanlde(access_token, cookie, name_title, description, genres, thumbnail, path_page, path_thumb, account_id):
     check = False
     file = get_file_upload(path_page)
 
@@ -334,7 +350,7 @@ def hanlde(access_token, cookie, name_title, description, genres, thumbnail, pat
     print("Uploading...")
 
     if length_video < 1200:
-        check = uploadVideoToFacebook(link_video, access_token, cookie, title, des, thumbnail)
+        check = uploadVideoToFacebook(link_video, access_token, cookie, title, des, thumbnail, account_id)
     else:
         if length_video > 3000:
             pass
@@ -387,7 +403,7 @@ def get_list_video(info_api, path_page, path_thumb, account_id):
         has_video = download_video_from_youtube(id_video, path_page)
 
         if has_video:
-            check = hanlde(access_token, cookie, title, description, tags, thumbnail, path_page, path_thumb)
+            check = hanlde(access_token, cookie, title, description, tags, thumbnail, path_page, path_thumb, account_id)
         else:
             save_data_by_api(channel_id, id_video)
 
