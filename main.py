@@ -704,7 +704,7 @@ def generate_cookie(string_cookie):
 
 
 if __name__ == '__main__':
-    arr_page = [[1, 2, 3], [1, 2, 3], [], [1, 2, 3], [], [1, 2, 3]]
+    arr_page = [[1, 2, 3], [3, 4], [1, 2], [1, 2, 3], [], []]
 
     option = str(input("One page (0) OR All page (1) ? "))
 
