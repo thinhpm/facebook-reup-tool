@@ -8,12 +8,9 @@ import sys
 from moviepy.editor import VideoFileClip
 import shutil
 from requests import exceptions
-import connect_db
 
 main_api = "api.mgghot.com"
 path = os.getcwd()
-
-connect_db.init()
 
 
 def get_data_file(path_file):
@@ -254,7 +251,7 @@ def process_video(file_name, length_cut):
     return 'output/output.mp4'
 
 
-def uploadVideoToFacebook(file_name, access_token, cookie, title, des, thumb, page_number):
+def uploadVideoToFacebook(file_name, access_token, cookie, title, des, thumb, account_id):
     file_size = os.path.getsize(file_name)
 
     headers = {
@@ -275,7 +272,7 @@ def uploadVideoToFacebook(file_name, access_token, cookie, title, des, thumb, pa
         content1 = json.loads(req1.content)
 
         if 'upload_session_id' not in content1:
-            update_check_point(page_number)
+            update_check_point(account_id)
             return False
 
         upload_session_id = content1['upload_session_id']
@@ -336,7 +333,7 @@ def getLengthVideo(input_video):
     return int(output)
 
 
-def hanlde(access_token, cookie, name_title, description, genres, thumbnail, path_page, path_thumb, page_number):
+def hanlde(access_token, cookie, name_title, description, genres, thumbnail, path_page, path_thumb, account_id):
     check = False
     file = get_file_upload(path_page)
 
@@ -356,7 +353,7 @@ def hanlde(access_token, cookie, name_title, description, genres, thumbnail, pat
     print("Uploading...")
 
     if length_video < 1200:
-        check = uploadVideoToFacebook(link_video, access_token, cookie, title, des, thumbnail, page_number)
+        check = uploadVideoToFacebook(link_video, access_token, cookie, title, des, thumbnail, account_id)
     else:
         if length_video > 3000:
             pass
@@ -383,7 +380,7 @@ def hanlde(access_token, cookie, name_title, description, genres, thumbnail, pat
     return check
 
 
-def get_list_video(info_api, path_page, path_thumb, page_number):
+def get_list_video(info_api, path_page, path_thumb, account_id):
     print("Get list video..")
     source = info_api['source']
     data_channel = info_api['data_channel']
@@ -409,7 +406,7 @@ def get_list_video(info_api, path_page, path_thumb, page_number):
         has_video = download_video_from_youtube(id_video, path_page)
 
         if has_video:
-            check = hanlde(access_token, cookie, title, description, tags, thumbnail, path_page, path_thumb, page_number)
+            check = hanlde(access_token, cookie, title, description, tags, thumbnail, path_page, path_thumb, account_id)
         else:
             save_data_by_api(channel_id, id_video)
 
@@ -426,64 +423,98 @@ def get_list_video(info_api, path_page, path_thumb, page_number):
 
 
 def save_data_by_api(channel_id, video_id):
+    url = "http://" + main_api + "/data/set.php"
+
     data = {
         'video_id': video_id,
-        'channel_id': channel_id
+        'channel_id': channel_id,
+        'key': key
     }
 
-    return connect_db.create_new_data(data)
+    req = requests.post(url, data=data)
+
+    if req.status_code != 200:
+        return False
+
+    return True
 
 
-def get_info_by_api(page_number):
+def get_info_by_api(page_number, account_id):
+    url = "http://" + main_api + "/accesstoken/get.php"
+
     results = {
         'status_code': 200,
         'data': []
     }
-
-    datas = connect_db.get_data_page(page_number)
-
-    if len(datas) == 0:
-        return {
-            'status_code': 404,
-            'data': []
-        }
-
-    access_token = datas['access_token']
-    channel_id = datas['channel_id']
-
-    source = get_source(channel_id)
-    data_channel = get_data_channel(channel_id)
-
-    result = {
-        'access_token': access_token,
-        'channel_id': channel_id,
-        'source': source,
-        'data_channel': data_channel,
-        'cookie': ''
+    data = {
+        'page_number': page_number,
+        'account_id': account_id,
+        'key': key
     }
 
-    results['data'] = result
+    req = requests.get(url, params=data)
+
+    results['status_code'] = req.status_code
+
+    if req.status_code != 200:
+        return results
+
+    datas = req.json()
+
+    if int(datas['status']) != 0:
+        access_token = datas['accesstoken']
+        cookie = generate_cookie(datas['cookie'])
+        channel_id = datas['channel_id']
+
+        source = get_source(channel_id)
+        data_channel = get_data_channel(channel_id)
+
+        result = {
+            'access_token': access_token,
+            'cookie': cookie,
+            'channel_id': channel_id,
+            'source': source,
+            'data_channel': data_channel
+        }
+
+        results['data'] = result
 
     return results
 
 
 def get_source(channel_id):
-    source = connect_db.get_source_channel(channel_id)
+    url = "http://" + main_api + "/channel/get.php"
 
-    if len(source) == 0:
+    data = {
+        'channel_id': channel_id,
+        'key': key
+    }
+
+    req = requests.get(url, params=data)
+
+    if req.status_code != 200:
         return False
+    data = req.json()
 
-    return source['source']
+    return data['records'][0]['source']
 
 
 def get_data_channel(channel_id):
-    results = []
-    data = connect_db.get_data_channel(channel_id)
+    url = "http://" + main_api + "/data/get.php"
 
-    for item in data:
-        results.append(item['video_id'])
+    data = {
+        'channel_id': channel_id,
+        'key': key
+    }
 
-    return results
+    req = requests.get(url, params=data)
+
+    if req.status_code != 200:
+        return False
+
+    data = req.json()
+
+    return data['records']
 
 
 def check_and_create_dir(account_id, page_number):
@@ -524,18 +555,25 @@ def update_data():
 
 
 def setupDataToServer(account_id, page_number):
-    name = str(input("Name page: "))
     source = str(input("Source: "))
     access_token = str(input("Access token: "))
 
+    url = "http://" + main_api + "/accesstoken/set.php"
+
     data = {
-        'name': name,
+        'account_id': account_id,
         'page_number': page_number,
         'source': source,
-        'accesstoken': access_token
+        'accesstoken': access_token,
+        'key': key
     }
 
-    return connect_db.create_new_page(data)
+    req = requests.post(url, data=data)
+
+    if req.status_code == 200:
+        return True
+
+    return False
 
 
 def auto(arr):
@@ -561,12 +599,12 @@ def auto(arr):
                 path_thumb = account_id + '/' + page_number
                 check_and_create_dir(account_id, page_number)
 
-                result = get_info_by_api(page_number)
+                result = get_info_by_api(page_number, account_id)
 
                 if result['status_code'] != 200:
                     print("Setup new data!")
                     setupDataToServer(account_id, page_number)
-                    result = get_info_by_api(page_number)
+                    result = get_info_by_api(page_number, account_id)
 
                 info = result['data']
 
@@ -589,29 +627,29 @@ def auto(arr):
 
 
 def default():
+    account_id = str(input("Account id: "))
     page_number = str(input("Page number: "))
 
-    account_id = "1"
     path_page = path + '/' + account_id + '/' + page_number
     path_thumb = account_id + '/' + page_number
     check_and_create_dir(account_id, page_number)
 
     while True:
         try:
-            result = get_info_by_api(page_number)
+            result = get_info_by_api(page_number, account_id)
 
             if result['status_code'] != 200:
                 print("Setup new data!")
                 setupDataToServer(account_id, page_number)
-                result = get_info_by_api(page_number)
+                result = get_info_by_api(page_number, account_id)
 
             info = result['data']
 
             if len(info) == 0:
                 print("Account have been checkpoint!")
-                return
+                continue
 
-            get_list_video(info, path_page, path_thumb, page_number)
+            get_list_video(info, path_page, path_thumb, account_id)
 
             time.sleep(600)
         except exceptions.ConnectionError:
@@ -632,15 +670,21 @@ def get_platform():
     return platforms[sys.platform]
 
 
-def update_check_point(page_number):
-    print("Update Check point! Page number: " + str(page_number))
+def update_check_point(account_id):
+    print("Update Check point! Account id: " + str(account_id))
+    url = "http://" + main_api + "/account/updateCheckpoint.php"
 
     data = {
-        'page_number': page_number,
-        'status': 0
+        'account_id': account_id,
+        'key': key
     }
 
-    return connect_db.update_status_access_token(data)
+    req = requests.post(url, data=data)
+
+    if req.status_code != 200:
+        return False
+
+    return True
 
 
 def generate_cookie(string_cookie):
@@ -660,4 +704,11 @@ def generate_cookie(string_cookie):
 
 
 if __name__ == '__main__':
-    default()
+    arr_page = [[1, 2, 3], [3, 4], [1, 2], [1, 2, 3], [], []]
+
+    option = str(input("One page (0) OR All page (1) ? "))
+
+    if option == "0":
+        default()
+    else:
+        auto(arr_page)
