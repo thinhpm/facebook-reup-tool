@@ -61,7 +61,7 @@ def create_channel(conn, data2):
     sql = ''' INSERT INTO channels(source)
               VALUES(?) '''
     cur = conn.cursor()
-    print(data2)
+
     cur.execute(sql, data2)
     conn.commit()
     return cur.lastrowid
@@ -82,12 +82,120 @@ def create_data(conn, data):
     return cur.lastrowid
 
 
-def add_page(data):
-    item_channel = (data['source'])
+def _update_status_access_token(data):
+    sql = ''' UPDATE access_tokens
+                  SET status = ?
+                  WHERE page_number = ?'''
+
+    cur = conn.cursor()
+    cur.execute(sql, data)
+    conn.commit()
+
+
+def _update_token_access_token(data):
+    sql = ''' UPDATE access_tokens
+                  SET access_token = ?
+                  WHERE page_number = ?'''
+
+    cur = conn.cursor()
+    cur.execute(sql, data)
+    conn.commit()
+
+
+def create_new_page(data):
+    item_channel = (data['source'],)
     id_channel = create_channel(conn, item_channel)
 
     item_access_token = (data['name'], data['accesstoken'], id_channel, data['page_number'], 1)
     create_access_token(conn, item_access_token)
+
+    return True
+
+
+def create_new_data(data):
+    item = (data['channel_id'], data['video_id'])
+    print(create_data(conn, item))
+
+    return True
+
+
+def update_status_access_token(data):
+    item = (data['status'], data['page_number'])
+    _update_status_access_token(item)
+
+    return True
+
+
+def update_token_access_token(data):
+    item = (data['access_token'], data['page_number'])
+    _update_token_access_token(item)
+
+    return True
+
+
+def get_data_page(page_number):
+    sql = "SELECT * FROM access_tokens WHERE page_number=" + str(page_number)
+    cur = conn.cursor()
+    cur.execute(sql)
+
+    rows = cur.fetchall()
+
+    if len(rows) == 0:
+        return []
+
+    for row in rows:
+        result = {
+            'id': row[0],
+            'name': row[1],
+            'access_token': row[2],
+            'channel_id': row[3],
+            'page_number': row[4],
+            'status': row[5]
+        }
+
+        return result
+
+
+def get_data_channel(channel_id):
+    results = []
+    sql = "SELECT * FROM datas WHERE channel_id=" + str(channel_id)
+    cur = conn.cursor()
+    cur.execute(sql)
+
+    rows = cur.fetchall()
+
+    if len(rows) == 0:
+        return []
+
+    for row in rows:
+        result = {
+            'id': row[0],
+            'channel_id': row[1],
+            'video_id': row[2],
+            'created_at': row[3]
+        }
+
+        results.append(result)
+
+    return results
+
+def get_source_channel(channel_id):
+    sql = "SELECT * FROM channels WHERE id=" + str(channel_id)
+    cur = conn.cursor()
+    cur.execute(sql)
+
+    rows = cur.fetchall()
+
+    if len(rows) == 0:
+        return []
+
+    for row in rows:
+        result = {
+            'id': row[0],
+            'source': row[1]
+        }
+
+        return result
 
 
 def main():
@@ -113,7 +221,7 @@ def main():
                                         created_at timestamp,
                                         FOREIGN KEY (channel_id) REFERENCES channels (id)
                                     );"""
-
+    #                                        FOREIGN KEY (channel_id) REFERENCES channels (id)
     # create a database connection
     conn = create_connection(database)
 
@@ -129,12 +237,5 @@ def main():
         print("Error! cannot create the database connection.")
 
 
-if __name__ == '__main__':
+def init():
     main()
-    data = {
-        'source': "source1",
-        "name": "name1",
-        "accesstoken": "accesstoken1",
-        "page_number": 2
-    }
-    add_page(data)
