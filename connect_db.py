@@ -114,7 +114,7 @@ def create_new_page(data):
 
 def create_new_data(data):
     item = (data['channel_id'], data['video_id'])
-    print(create_data(conn, item))
+    create_data(conn, item)
 
     return True
 
@@ -179,6 +179,7 @@ def get_data_channel(channel_id):
 
     return results
 
+
 def get_source_channel(channel_id):
     sql = "SELECT * FROM channels WHERE id=" + str(channel_id)
     cur = conn.cursor()
@@ -239,3 +240,4 @@ def main():
 
 def init():
     main()
+

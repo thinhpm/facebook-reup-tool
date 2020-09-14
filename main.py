@@ -57,6 +57,8 @@ def get_list_video_by_api(channel_id, data_channel):
                 return []
 
             key_api = key_apis[stt]
+
+            print("Try next key api...")
             continue
 
         items = list_item['items']

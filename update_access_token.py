@@ -2,7 +2,9 @@ import connect_db
 
 
 def update_access_token(data):
-    return connect_db.update_token_access_token(data)
+    connect_db.update_token_access_token(data)
+
+    return connect_db.update_status_access_token({'status': 1, 'page_number': data['page_number']})
 
 
 def get_name_page(page_number):
