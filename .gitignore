@@ -1,3 +1,4 @@
 .idea/
-config/key.txt
-config/key_api.txt
+database/pythonsqlite.db
+config/
+__pycache__/
